@@ -104,7 +104,7 @@ func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navi
            let scheme: String = url.scheme {
             
             switch scheme {
-                case "itms-appss","payco":
+                case "payco":
                     
                     if #available(iOS 10.0, *) {
                         shouldStartLoadWith = false
@@ -139,7 +139,7 @@ func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navi
     NSURL *sURL                         = navigationAction.request.URL;
     NSString *sScheme                   = sURL.scheme;
     
-    if ([@"itms-appss" isEqualToString:sScheme] || [@"payco" isEqualToString:sScheme]) {
+    if ([@"payco" isEqualToString:sScheme]) {
         
         sPolicy = WKNavigationActionPolicyCancel;
         
@@ -168,7 +168,7 @@ func webView(_ webView: UIWebView, shouldStartLoadWith request: URLRequest, navi
     NSURL *sURL                         = request.URL;
     NSString *sScheme                   = sURL.scheme;
     
-    if ([@"itms-appss" isEqualToString:sScheme] || [@"payco" isEqualToString:sScheme]) {
+    if ([@"payco" isEqualToString:sScheme]) {
         
         if (@available(iOS 10.0, *)) {
             
