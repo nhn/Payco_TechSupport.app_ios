@@ -66,6 +66,8 @@ extension PaycoOnlinePaymentWebViewController: WKNavigationDelegate {
                 decisionHandler(.allow)
                 break
             }
+        } else {
+            decisionHandler(.allow)
         }
     }
     
