@@ -23,8 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = ViewController()
         }
         
-        let cookieStorate: HTTPCookieStorage    = HTTPCookieStorage.shared
-        cookieStorate.cookieAcceptPolicy        = .always
         return true
     }
 
