@@ -31,6 +31,16 @@ func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigatio
             case "payco":
                 if #available(iOS 10.0, *) {
                     UIApplication.shared.open(url, options: [:]) { (success) in
+
+                        if !success {
+                            let alertVC = UIAlertController(title: nil, message: "앱을 정상적으로 실행할 수 없습니다.", preferredStyle: .alert)
+                            let ok = UIAlertAction(title: "확인", style: .default) { (action) in
+                                alertVC.dismiss(animated: true, completion: nil)
+                            }
+                            alertVC.addAction(ok)
+                            self.present(alertVC, animated: true, completion: nil)
+                        }
+
                         decisionHandler(.cancel)
                     }
                 } else {
