@@ -6,8 +6,12 @@ PAYCO APP 결제 연동을 위한 iOS 데모 앱과 가이드 입니다.
 ## iOS 적용 가이드
 
 ### 1. 스킴 추가(optional)
-* iOS PAYCO 결제 연동은 기본적으로 유니버셜링크 기반으로 동작합니다. 다만 앱업데이트나 iOS 업데이트 과정에서 [유니버셜링크가 비활성화 되는 경우](https://openradar.appspot.com/4999496467480576)가 있으며 이런 상황에서 PAYCO 결제 브릿지 웹뷰 내부에서는 URLSCheme 방식으로 우회하여 결제를 처리합니다.
-* PAYCO 결제 브릿지 웹뷰 내부에서 URLScheme 처리를 위해 가맹점 앱 내부에서 `canOpenURL(_:)로 앱의 설치 여부를 판단하는 코드가 있을 경우`, Info.plist에 아래와 같이 앱 스킴이 추가되어야 합니다.
+* iOS PAYCO 결제 연동은 기본적으로 유니버셜링크 기반으로 동작합니다. 
+  그런데 앱업데이트나 iOS 업데이트 과정에서 [유니버셜링크가 비활성화 되는 경우](https://openradar.appspot.com/4999496467480576)가 있어 
+  이럴경우 PAYCO 결제 브릿지 웹뷰 내부에서는 URLSCheme 방식으로 우회하여 결제를 처리합니다.
+* PAYCO 결제 브릿지 웹뷰 내부에서 URLScheme 처리를 위해 가맹점 앱 내부에서 2가지 방안으로 처리할 수 있습니다.
+  1. openURL:option:completionHandler: 를 사용하거나
+  2. `canOpenURL(_:)로 앱의 설치 여부를 판단하는 코드가 있을 경우`, Info.plist에 아래와 같이 앱 스킴이 추가되어야 합니다.
      ```xml
     <key>LSApplicationQueriesSchemes</key>
     <array>
